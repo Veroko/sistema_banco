@@ -66,6 +66,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="controller\crearUsuario.ashx" />
+    <Content Include="controller\IniciarSesion.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -76,19 +78,40 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="model\model.script\bd_banco.sql" />
+    <Content Include="view\Default.aspx" />
+    <Content Include="view\Inicio.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="model\cuenta.cs" />
-    <Compile Include="model\tipoCuenta.cs" />
-    <Compile Include="model\usuario.cs" />
-    <Compile Include="model\tar_coordenadas.cs" />
+    <Compile Include="controller\crearUsuario.ashx.cs">
+      <DependentUpon>crearUsuario.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="controller\IniciarSesion.ashx.cs">
+      <DependentUpon>IniciarSesion.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="model\Conexion.cs" />
+    <Compile Include="model\Cuenta.cs" />
+    <Compile Include="model\Data.cs" />
+    <Compile Include="model\TipoCuenta.cs" />
+    <Compile Include="model\Usuario.cs" />
+    <Compile Include="model\Tar_coordenadas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="view\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="controller\" />
-    <Folder Include="view\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

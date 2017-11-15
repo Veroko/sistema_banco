@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 namespace sistema_banco.model {
-    public class usuario {
+    public class Usuario {
 
         private int id;
         private String rut;
@@ -13,7 +13,12 @@ namespace sistema_banco.model {
         private String direccion;
         private String fono;
         private String clave;
+        private int numCuenta;
         private int tar_coordenadas;
+        
+        public Usuario() {
+           
+        }
 
         public int Id { get => id; set => id = value; }
         public string Rut { get => rut; set => rut = value; }
@@ -23,5 +28,6 @@ namespace sistema_banco.model {
         public string Fono { get => fono; set => fono = value; }
         public string Clave { get => clave; set => clave = value; }
         public int Tar_coordenadas { get => tar_coordenadas; set => tar_coordenadas = value; }
+        public int NumCuenta { get => numCuenta; set => numCuenta = value; }
     }
 }

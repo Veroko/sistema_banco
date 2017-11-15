@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 namespace sistema_banco.model {
-    public class tar_coordenadas {
+    public class Tar_coordenadas {
 
         private int id;
         private String seria_a;
@@ -17,6 +17,12 @@ namespace sistema_banco.model {
         private String seria_h;
         private String seria_i;
         private String seria_j;
+
+        public Tar_coordenadas() {
+
+        }
+
+        
 
         public int Id { get => id; set => id = value; }
         public string Seria_a { get => seria_a; set => seria_a = value; }

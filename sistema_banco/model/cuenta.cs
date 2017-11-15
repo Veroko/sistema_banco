@@ -4,12 +4,16 @@ using System.Linq;
 using System.Web;
 
 namespace sistema_banco.model {
-    public class cuenta {
+    public class Cuenta {
 
         private int id;
         private int usuario;
         private int tipoCuenta;
         private int saldo;
+
+        public Cuenta() {
+
+        }
 
         public int Id { get => id; set => id = value; }
         public int Usuario { get => usuario; set => usuario = value; }

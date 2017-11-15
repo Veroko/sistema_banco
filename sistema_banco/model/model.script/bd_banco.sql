@@ -18,6 +18,8 @@ CREATE TABLE tar_cordenadas(
 	serie_j VARCHAR(19)
 );
 
+
+
 CREATE TABLE usuario(
 	id INT IDENTITY(1,1) PRIMARY KEY,
 	rut VARCHAR(12),
@@ -26,6 +28,7 @@ CREATE TABLE usuario(
 	direccion VARCHAR(150),
 	fono VARCHAR(15),
 	clave VARCHAR(10),
+	numCuenta int,
 	tar_cordenadas INT REFERENCES tar_cordenadas(id)
 );
 
@@ -44,6 +47,19 @@ CREATE TABLE cuenta(
 	usuario INT REFERENCES usuario(id),
 	tipoCuenta INT REFERENCES tipoCuenta(id),
 	saldo INT,
-
 	montoMaxGiro INT,
+	numCuenta_fk int,
+	foreign key(numCuenta_fk) references usuario(id)
 );
+
+CREATE TABLE solicitarCredito(
+	id INT IDENTITY,
+	fecha DATE,
+	numCuenta INT,
+	monto INT,
+	PRIMARY KEY(id),
+	FOREIGN KEY(numCuenta) REFERENCES usuario(id)
+);
+
+
+--drop database banco
