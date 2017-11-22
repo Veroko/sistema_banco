@@ -10,16 +10,15 @@ CREATE TABLE usuario(
 	correo VARCHAR(50),
 	direccion VARCHAR(150),
 	fono VARCHAR(15),
-	clave VARCHAR(10),
+	clave VARCHAR(10)
 );
 
 --insert into usuario values('19083318-6','mati','asd','asd','+6985')
 
 CREATE TABLE tarjetaTransferencia(
-	id INT IDENTITY,
+	id INT IDENTITY(1,1) PRIMARY KEY,
 	codigo VARCHAR(250),
 	user_fk INT,
-	PRIMARY KEY(id),
 	FOREIGN KEY(user_fk) REFERENCES usuario(id)
 );
 

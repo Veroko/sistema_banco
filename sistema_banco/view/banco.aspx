@@ -6,12 +6,17 @@
 
      if(Session["usuario"] != null) {
          u = (Usuario) Session["usuario"];
+
+         
+
+    
+
      } else {
          Response.Redirect("registrarCuenta.aspx");
      }
      Data d = new Data();
 
-     List<Cuenta> lista = d.getCuenta(u.Id);
+   List<Cuenta> lista = d.getCuenta(u.Id);
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -34,8 +39,9 @@
             }
             Response.Write("<h5>N° de cuentas asociadas: '"+contadorCuentas+"'</h5>");
         %>
-        <h5>ID: </h5>
-        <h5>Usuario: ></h5> 
+
+    
+  
 
     <a href="ResumenCuenta.aspx"><input type="button" value="Resumen cuenta"/></a>
     

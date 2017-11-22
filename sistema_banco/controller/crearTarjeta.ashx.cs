@@ -3,12 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
 
 namespace sistema_banco.controller {
     /// <summary>
     /// Descripción breve de crearTarjeta
     /// </summary>
-    public class crearTarjeta : IHttpHandler {
+    public class crearTarjeta : IHttpHandler, IRequiresSessionState {
 
         public void ProcessRequest(HttpContext context) {
                 Data d = new Data();

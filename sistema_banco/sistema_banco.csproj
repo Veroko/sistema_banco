@@ -84,6 +84,7 @@
     <Content Include="controller\crearTarjeta.ashx" />
     <Content Include="controller\crearUsuario.ashx" />
     <Content Include="controller\cambiarContraseña.ashx" />
+    <Content Include="controller\cerrarSesion.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -99,12 +100,16 @@
     <Content Include="view\registrarCuenta.aspx" />
     <Content Include="view\registrarUsuario.aspx" />
     <Content Include="view\Inicio.aspx" />
+    <Content Include="view\registroCorrecto.aspx" />
     <Content Include="view\ResumenCuenta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="controller\cambiarContraseña.ashx.cs">
       <DependentUpon>cambiarContraseña.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="controller\cerrarSesion.ashx.cs">
+      <DependentUpon>cerrarSesion.ashx</DependentUpon>
     </Compile>
     <Compile Include="controller\crearCuenta.ashx.cs">
       <DependentUpon>crearCuenta.ashx</DependentUpon>
@@ -124,7 +129,6 @@
     <Compile Include="model\TarjetaTransferencia.cs" />
     <Compile Include="model\TipoCuenta.cs" />
     <Compile Include="model\Usuario.cs" />
-    <Compile Include="model\Tar_coordenadas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="view\banco.aspx.cs">
       <DependentUpon>banco.aspx</DependentUpon>
@@ -160,6 +164,13 @@
     </Compile>
     <Compile Include="view\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="view\registroCorrecto.aspx.cs">
+      <DependentUpon>registroCorrecto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view\registroCorrecto.aspx.designer.cs">
+      <DependentUpon>registroCorrecto.aspx</DependentUpon>
     </Compile>
     <Compile Include="view\ResumenCuenta.aspx.cs">
       <DependentUpon>ResumenCuenta.aspx</DependentUpon>

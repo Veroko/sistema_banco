@@ -119,7 +119,7 @@ namespace sistema_banco.model {
 
         public List<Cuenta> getCuenta(int id) {
             List<Cuenta> lista = new List<Cuenta>();
-            query = "SELECT * FROM cuenta WHERE usuario = '" + id;
+            query = "SELECT * FROM cuenta WHERE usuario = " + id;
             con.Ejecutar(query);
             Cuenta c;
             while(con.rs.Read()) {
@@ -136,10 +136,50 @@ namespace sistema_banco.model {
             return lista;
         }
 
+        public void crearCodigo(int id) {
+            Random randomCodigo;
+            string codigos;
+
+            TarjetaTransferencia t = new TarjetaTransferencia();
+           
+
+
+            codigos = "";
+            randomCodigo = new Random();
+            for (int i = 0; i < 50; i++)
+            {
+                string agregar = "";
+                int numero = randomCodigo.Next(0, 100);
+                if (numero < 10)
+                {
+                    agregar = "0" + numero;
+                }
+                else
+                {
+                    agregar = numero.ToString();
+                }
+                if (i == 0)
+                {
+                    codigos += agregar;
+                }
+                else
+                {
+                    codigos += "|" + agregar;
+                }
+            }
+
+            t.Codigos = codigos;
+            t.User =id;
+
+            crearTajeta(t);
+
+        }
+
+
         public TarjetaTransferencia getTarjeta(int num) {
             TarjetaTransferencia t = null;
 
-            query = "SELECT * FROM tarjetaTransferencia WHERE user_fk = '" + num + "'";
+            query = "SELECT * FROM tarjetaTransferencia WHERE user_fk = " + num;
             con.Ejecutar(query);
 
             if (con.rs.Read()) {

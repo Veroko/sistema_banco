@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Web.SessionState;
 namespace sistema_banco.controller {
     /// <summary>
     /// Descripción breve de cambiarContraseña
     /// </summary>
-    public class cambiarContraseña : IHttpHandler {
+    public class cambiarContraseña : IHttpHandler, IRequiresSessionState {
 
         public void ProcessRequest(HttpContext context) {
             Data d = new Data();

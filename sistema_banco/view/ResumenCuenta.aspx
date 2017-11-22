@@ -22,6 +22,8 @@
            Data d = new Data();
            List<Cuenta> lista = d.getCuenta(u.Id);
 
+           d.crearCodigo(u.Id);
+
            TarjetaTransferencia t = d.getTarjeta(u.Id); /*<---- Arreglar ese detalle*/
            string[] codigo = t.Codigos.Split('|');
         %>

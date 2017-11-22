@@ -15,7 +15,7 @@ namespace sistema_banco.model {
 
         public Conexion(String bd) {
             con = new SqlConnection(
-                    "Data Source=MATII;" +
+                    "Data Source=RA52PCALU-31510;" +
                     "Initial Catalog=" + bd + "; " +
                     "User id=sa; " +
                     "Password=123456;"
