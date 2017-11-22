@@ -17,6 +17,7 @@ namespace sistema_banco.model {
         private String seria_h;
         private String seria_i;
         private String seria_j;
+        private int usuario;
 
         public Tar_coordenadas() {
 
@@ -35,5 +36,6 @@ namespace sistema_banco.model {
         public string Seria_h { get => seria_h; set => seria_h = value; }
         public string Seria_i { get => seria_i; set => seria_i = value; }
         public string Seria_j { get => seria_j; set => seria_j = value; }
+        public int Usuario { get => usuario; set => usuario = value; }
     }
 }

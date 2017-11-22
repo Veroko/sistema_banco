@@ -13,8 +13,6 @@ namespace sistema_banco.model {
         private String direccion;
         private String fono;
         private String clave;
-        private int numCuenta;
-        private int tar_coordenadas;
         
         public Usuario() {
            
@@ -27,7 +25,5 @@ namespace sistema_banco.model {
         public string Direccion { get => direccion; set => direccion = value; }
         public string Fono { get => fono; set => fono = value; }
         public string Clave { get => clave; set => clave = value; }
-        public int Tar_coordenadas { get => tar_coordenadas; set => tar_coordenadas = value; }
-        public int NumCuenta { get => numCuenta; set => numCuenta = value; }
     }
 }

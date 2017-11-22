@@ -15,7 +15,7 @@ namespace sistema_banco.model {
 
         public Conexion(String bd) {
             con = new SqlConnection(
-                    "Data Source=DESKTOP-TC26VSD\\SQLEXPRESS;" +
+                    "Data Source=MATII;" +
                     "Initial Catalog=" + bd + "; " +
                     "User id=sa; " +
                     "Password=123456;"
@@ -50,5 +50,4 @@ namespace sistema_banco.model {
             con.Close();
         }
     }
-}
 }

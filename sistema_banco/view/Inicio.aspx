@@ -8,8 +8,8 @@
     <title></title>
 </head>
 <body>
-    <form method="post" action="../controller/iniciarSesion.ashx" style="height: 98px" >
-        <input type="text" name="txtUsuario"/>
+    <form method="post" action="../controller/iniciarSesion.ashx">
+        <input type="text" name="rut"/>
 
         <br />
 
@@ -21,6 +21,6 @@
 
     </form>
 
-    ¿No eres cliente?. <a href="Default.aspx">Registrate</a>
+    ¿No eres cliente?. <a href="registrarUsuario.aspx"><input type="submit" value="Registrate" /></a>
 </body>
 </html>

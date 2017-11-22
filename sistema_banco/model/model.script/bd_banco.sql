@@ -3,6 +3,15 @@ GO
 USE banco
 GO
 
+CREATE TABLE usuario(
+	id INT IDENTITY(1,1) PRIMARY KEY,
+	rut VARCHAR(12),
+	nombre VARCHAR(150),
+	correo VARCHAR(50),
+	direccion VARCHAR(150),
+	fono VARCHAR(15),
+	clave VARCHAR(10),
+);
 
 CREATE TABLE tar_cordenadas(
 	id INT IDENTITY(1,1) PRIMARY KEY,
@@ -15,21 +24,8 @@ CREATE TABLE tar_cordenadas(
 	serie_g VARCHAR(19),
 	serie_h VARCHAR(19),
 	serie_i VARCHAR(19),
-	serie_j VARCHAR(19)
-);
-
-
-
-CREATE TABLE usuario(
-	id INT IDENTITY(1,1) PRIMARY KEY,
-	rut VARCHAR(12),
-	nombre VARCHAR(150),
-	correo VARCHAR(50),
-	direccion VARCHAR(150),
-	fono VARCHAR(15),
-	clave VARCHAR(10),
-	numCuenta int,
-	tar_cordenadas INT REFERENCES tar_cordenadas(id)
+	serie_j VARCHAR(19),
+	usuario INT REFERENCES usuario(id)
 );
 
 
@@ -48,9 +44,10 @@ CREATE TABLE cuenta(
 	tipoCuenta INT REFERENCES tipoCuenta(id),
 	saldo INT,
 	montoMaxGiro INT,
-	numCuenta_fk int,
-	foreign key(numCuenta_fk) references usuario(id)
 );
+
+insert into usuario values();
+insert into cuenta values();
 
 CREATE TABLE solicitarCredito(
 	id INT IDENTITY,
