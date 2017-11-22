@@ -14,9 +14,8 @@
             <input type="submit" value="Cerrar Sesión" />
         </form>
     </div>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
+
+    <a href="ResumenCuenta.aspx"><input type="button" value="Resumen cuenta"/></a>
+    
 </body>
 </html>

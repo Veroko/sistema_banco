@@ -93,5 +93,42 @@ namespace sistema_banco.model {
             con.Cerrar();
             
         }
+
+        public TarjetaTransferencia getTarjeta(int num) {
+            TarjetaTransferencia t = null;
+
+            query = "SELECT * FROM tarjetaTransferencia WHERE user_fk = '" + num + "'";
+            con.Ejecutar(query);
+
+            if (con.rs.Read()) {
+                t = new TarjetaTransferencia();
+
+                t.Id = con.rs.GetInt32(0);
+                t.Codigos = con.rs.GetString(1);
+                t.User = con.rs.GetInt32(2);
+            }
+            con.Cerrar();
+
+            return t;
+        }
+
+
+        public void updateContraseña(string nueva, int id) {
+            query = "UPDATE usuario SET clave = '" + nueva + "', primer_inicio = '0' WHERE id = '" + id + "'";
+
+
+            con.Ejecutar(query);
+            con.Cerrar();
+        }
+
+        public void crearTajeta(TarjetaTransferencia t) {
+            query = "INSERT INTO tarjetaTransferencia VALUES('" + t.Codigos + "', '" + t.User + "')";
+
+
+
+            con.Ejecutar(query);
+            con.Cerrar();
+
+        }
     }
 }

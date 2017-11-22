@@ -21,6 +21,8 @@
 
     </form>
 
-    ¿No eres cliente?. <a href="registrarUsuario.aspx"><input type="submit" value="Registrate" /></a>
+    ¿Cliente nuevo?, cambie su contraseña antes de iniciar sesión <a href="cambiarContraseña.ashx"><input type="button" value="Cambiar contraseña" /></a>
+
+    ¿No eres cliente?. <a href="registrarUsuario.aspx"><input type="submit" value="Registrate!!" /></a>
 </body>
 </html>

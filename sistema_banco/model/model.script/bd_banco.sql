@@ -13,19 +13,12 @@ CREATE TABLE usuario(
 	clave VARCHAR(10),
 );
 
-CREATE TABLE tar_cordenadas(
-	id INT IDENTITY(1,1) PRIMARY KEY,
-	serie_a VARCHAR(19),
-	serie_b VARCHAR(19),
-	serie_c VARCHAR(19),
-	serie_d VARCHAR(19),
-	serie_e VARCHAR(19),
-	serie_f VARCHAR(19),
-	serie_g VARCHAR(19),
-	serie_h VARCHAR(19),
-	serie_i VARCHAR(19),
-	serie_j VARCHAR(19),
-	usuario INT REFERENCES usuario(id)
+CREATE TABLE tarjetaTransferencia(
+	id INT IDENTITY,
+	codigo VARCHAR(250),
+	user_fk INT,
+	PRIMARY KEY(id),
+	FOREIGN KEY(user_fk) REFERENCES usuario(id)
 );
 
 
@@ -43,7 +36,7 @@ CREATE TABLE cuenta(
 	usuario INT REFERENCES usuario(id),
 	tipoCuenta INT REFERENCES tipoCuenta(id),
 	saldo INT,
-	montoMaxGiro INT,
+	montoMaxGiro INT
 );
 
 insert into usuario values();

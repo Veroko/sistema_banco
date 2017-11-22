@@ -20,10 +20,6 @@
 
         <input type="text" name="txtFono" placeholder="+569 75487414" />
 
-        <%--<input type="number" name="tarCordes" />--%>
-       
-        <input type="password" name="txtClave" />
-
         <input type="submit" value="OK" />
     </form>
 
