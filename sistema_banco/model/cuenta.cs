@@ -10,6 +10,7 @@ namespace sistema_banco.model {
         private int usuario;
         private int tipoCuenta;
         private int saldo;
+        private String giroMaximo;
 
         public Cuenta() {
 
@@ -19,5 +20,6 @@ namespace sistema_banco.model {
         public int Usuario { get => usuario; set => usuario = value; }
         public int TipoCuenta { get => tipoCuenta; set => tipoCuenta = value; }
         public int Saldo { get => saldo; set => saldo = value; }
+        public string GiroMaximo { get => giroMaximo; set => giroMaximo = value; }
     }
 }

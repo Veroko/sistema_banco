@@ -15,7 +15,8 @@ namespace sistema_banco.model {
         }
 
         public void crearUsuario(Usuario us) {
-            query = "INSERT INTO usuario VALUES('"+us.Rut+"','"+us.Nombre+"','"+us.Correo+"','"+us.Direccion+"','"+us.Fono+"','"+us.Clave+"')";
+            
+            query = "insert into usuario values('" + us.Rut + "','" + us.Nombre + "','" + us.Correo + "','" + us.Direccion + "','" + us.Fono + "', '"+us.Clave+"')";
 
             con.Ejecutar(query);
             con.Cerrar();
@@ -41,7 +42,7 @@ namespace sistema_banco.model {
         }
         public Usuario getUsuario(String rut, String pass) {
             Usuario u = null;
-            query = "SELECT * FROM usuario WHERE rut = '"+rut+"' AND pass ='"+pass+"'";
+            query = "SELECT * FROM usuario WHERE rut = '"+rut+"' AND clave ='"+pass+"'";
             con.Ejecutar(query);
             if(con.rs.Read()) {
                 u = new Usuario();
@@ -60,7 +61,27 @@ namespace sistema_banco.model {
 
         public Usuario getUsuario(String rut) {
             Usuario u = null;
-            query = "SELECT * FROM usuario WHERE rut = '" + rut;
+            query = "SELECT * FROM usuario WHERE rut = '" + rut + "';";
+            con.Ejecutar(query);
+            if(con.rs.Read()) {
+                u = new Usuario();
+
+                u.Id = con.rs.GetInt32(0);
+                u.Rut = con.rs.GetString(1);
+                u.Nombre = con.rs.GetString(2);
+                u.Correo = con.rs.GetString(3);
+                u.Direccion = con.rs.GetString(4);
+                u.Fono = con.rs.GetString(5);
+                u.Clave = con.rs.GetString(6);
+            }
+            con.Cerrar();
+            return u;
+        }
+
+        public List<Usuario> getUsuarioList(String rut) {
+            List<Usuario> lista = new List<Usuario>();
+            Usuario u;
+            query = "SELECT * FROM usuario WHERE rut = '" + rut + "';";
             con.Ejecutar(query);
             if(con.rs.Read()) {
                 u = new Usuario();
@@ -72,10 +93,12 @@ namespace sistema_banco.model {
                 u.Direccion = con.rs.GetString(4);
                 u.Fono = con.rs.GetString(5);
                 u.Clave = con.rs.GetString(7);
+                lista.Add(u);
             }
             con.Cerrar();
-            return u;
+            return lista;
         }
+
         public void crearCuenta(Cuenta cue) {
             switch(cue.TipoCuenta) {
                 case 1:
@@ -92,6 +115,25 @@ namespace sistema_banco.model {
             con.Ejecutar(query);
             con.Cerrar();
             
+        }
+
+        public List<Cuenta> getCuenta(int id) {
+            List<Cuenta> lista = new List<Cuenta>();
+            query = "SELECT * FROM cuenta WHERE usuario = '" + id;
+            con.Ejecutar(query);
+            Cuenta c;
+            while(con.rs.Read()) {
+                c = new Cuenta();
+
+                c.Id = con.rs.GetInt32(0);
+                c.Usuario = con.rs.GetInt32(1);
+                c.TipoCuenta = con.rs.GetInt32(2);
+                c.Saldo = con.rs.GetInt32(3);
+                c.GiroMaximo = con.rs.GetString(4);
+                lista.Add(c);
+            }
+            con.Cerrar();
+            return lista;
         }
 
         public TarjetaTransferencia getTarjeta(int num) {

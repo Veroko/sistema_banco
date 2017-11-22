@@ -23,15 +23,18 @@
     %>
     <h2>Seleccione tipo de cuenta</h2>
     <br />
-    <form action="registrarCuenta.aspx" method="post">
+    <form action="../controller/registrarCuenta.aspx" method="post">
 
         <select name="cboxTipoCuenta" style="width: 204px">
             <%foreach(TipoCuenta t in lista) {
-                    Response.Write("<option value='" + t.Id + "'>" + t.Cuenta + "</option>");
+                    Response.Write("<option name='valorCbox' value='" + t.Id + "'>" + t.Cuenta + "</option>");
               }%>
-            
+            <option ></option>
         </select>
+
+        <h6>Seleccione una de las opciones y podra agregar un tipo de cuenta para usted</h6>
         <input type="submit" value="Aceptar" />
+
 
     </form>
     <a href="banco.aspx"><input type="submit" value="Ir a Home"/></a>

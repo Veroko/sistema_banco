@@ -14,12 +14,15 @@ namespace sistema_banco.controller {
             Data d = new Data();
 
             /*obtener el id del usuario actual en la sesion ...*/
+            
 
             Usuario u = new Usuario();
+            
+            int idUsuario = (int) context.Session[u.Id];
 
             u.Clave = context.Request.Params["txtNuevaContra"];
 
-            d.updateContraseña(u.Clave,u.Id);
+            d.updateContraseña(u.Clave,idUsuario);
 
             context.Response.Redirect("../view/Inicio.aspx");
 

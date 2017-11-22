@@ -15,8 +15,10 @@ namespace sistema_banco.controller {
 
             Usuario us = new Usuario();
 
+                
             /*------------------------------------------------------------------------*/
             /*-------------------Aquí generamos clave automatica----------------------*/
+
 
                 var charsMay = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 var charsMin = "abcdefghijklmnopqrstuvwxyz";
@@ -45,17 +47,22 @@ namespace sistema_banco.controller {
 
             /*---------------------------------------------------------------*/
 
-             us.Rut = context.Request.Params["txtRut"];
+
+            us.Rut = context.Request.Params["txtRut"];
             us.Nombre = context.Request.Params["txtNombre"];
             us.Correo = context.Request.Params["txtCorreo"];
             us.Direccion = context.Request.Params["txtDireccion"];
             us.Fono = context.Request.Params["txtFono"];
-            us.Clave = finalString;
+            us.Clave = context.Request.Params["txtPass"];
 
-
-            d.crearUsuario(us);
-
-            context.Response.Redirect("../View/Inicio.aspx");
+            Usuario u = d.getUsuario(us.Rut);
+            if(u == null) {
+                d.crearUsuario(us);
+                context.Response.Redirect("../View/Inicio.aspx");
+            } else {
+                context.Response.Redirect("../View/registrarUsuario.aspx");
+            }
+            
 
         }
 

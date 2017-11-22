@@ -15,8 +15,17 @@ namespace sistema_banco.controller {
             Data d = new Data();
 
             Cuenta c = new Cuenta();
+            Usuario u = new Usuario();
+            int idUsuario = (int)context.Session[u.Id];
 
+            c.Saldo = 0;
+            c.GiroMaximo = null;
+            c.TipoCuenta = Int32.Parse(context.Request.Params.Get("valorCbox"));
+            c.Usuario = idUsuario;
 
+            d.crearCuenta(c);
+
+            context.Response.Redirect("../view/banco.apsx");
 
         }
 

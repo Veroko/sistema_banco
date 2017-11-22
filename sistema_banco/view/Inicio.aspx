@@ -9,11 +9,11 @@
 </head>
 <body>
     <form method="post" action="../controller/iniciarSesion.ashx">
-        <input type="text" name="rut"/>
+        <input type="text" name="rut" required="required"/>
 
         <br />
 
-        <input type="password" name="txtPass" />
+        <input type="password" name="txtPass" required="required"/>
 
 
         <input type="submit" value="Iniciar sesión"/>
@@ -21,7 +21,7 @@
 
     </form>
 
-    ¿Cliente nuevo?, cambie su contraseña antes de iniciar sesión <a href="cambiarContraseña.ashx"><input type="button" value="Cambiar contraseña" /></a>
+    <%--¿Cliente nuevo?, cambie su contraseña antes de iniciar sesión <a href="cambiarContraseña.aspx"><input type="button" value="Cambiar contraseña" /></a>--%>
 
     ¿No eres cliente?. <a href="registrarUsuario.aspx"><input type="submit" value="Registrate!!" /></a>
 </body>

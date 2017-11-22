@@ -10,20 +10,34 @@
 <body>
 
        <%
+           Usuario u = new Usuario();
 
-           /*Aquí entregarle el rut del usuario a getTarjeta*/
+           if(Session["usuario"] != null) {
+               u = (Usuario) Session["usuario"];
+           } else {
+               Response.Redirect("");
+           }
+           /*Aquí entregarle el id(no rut) del usuario a getTarjeta*/
 
            Data d = new Data();
-           Usuario u = d.getUsuario("aquí entregarle el rut");
-           
-           TarjetaTransferencia t = d.getTarjeta(u.id); /*<---- Arreglar ese detalle*/
+           List<Cuenta> lista = d.getCuenta(u.Id);
+
+           TarjetaTransferencia t = d.getTarjeta(u.Id); /*<---- Arreglar ese detalle*/
            string[] codigo = t.Codigos.Split('|');
         %>
 
     <h2>Datos</h2>
 
     <%
-       /*mostrar datos de usuario y el tipo de cuenta*/ 
+        Response.Write("Usuario:"+u.Nombre);
+        int contCuentas = 0;
+        foreach(Cuenta c in lista) {
+            contCuentas++;
+            Response.Write("Cuenta N° "+contCuentas);
+            Response.Write("ID de la cuenta/Numero de Cuenta: "+c.Id);
+            Response.Write("Saldo: "+c.Saldo);
+            Response.Write("Giro Maximo: "+c.GiroMaximo);
+        }
     %>
 
     <h4>Tarjeta de transferencia</h4>

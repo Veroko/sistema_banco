@@ -10,15 +10,17 @@
 <body>
     <form action="../controller/crearUsuario.ashx" method="post">
         
-        <input type="text" name="txtRut" placeholder="19590104-k"/>
+        <input type="text" name="txtRut" placeholder="19590104-k" required="required"/>
 
-        <input type="text" name="txtNombre" placeholder="Juanito Perez" />
+        <input type="text" name="txtNombre" placeholder="Juanito Perez" required="required"/>
 
-        <input type="text" name="txtCorreo" placeholder="alguien@gmail.com" />
+        <input type="text" name="txtCorreo" placeholder="alguien@gmail.com" required="required"/>
 
-        <input type="text" name="txtDireccion" placeholder="calle falsa 123" />
+        <input type="text" name="txtDireccion" placeholder="calle falsa 123" required="required"/>
 
-        <input type="text" name="txtFono" placeholder="+569 75487414" />
+        <input type="text" name="txtFono" placeholder="+569 75487414" required="required"/>
+
+        <input type="password" name="txtPass" required="required" />
 
         <input type="submit" value="OK" />
     </form>

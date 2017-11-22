@@ -13,6 +13,8 @@ CREATE TABLE usuario(
 	clave VARCHAR(10),
 );
 
+--insert into usuario values('19083318-6','mati','asd','asd','+6985')
+
 CREATE TABLE tarjetaTransferencia(
 	id INT IDENTITY,
 	codigo VARCHAR(250),
@@ -39,8 +41,8 @@ CREATE TABLE cuenta(
 	montoMaxGiro INT
 );
 
-insert into usuario values();
-insert into cuenta values();
+--insert into usuario values();
+--insert into cuenta values();
 
 CREATE TABLE solicitarCredito(
 	id INT IDENTITY,
