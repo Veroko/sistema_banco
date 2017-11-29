@@ -66,29 +66,10 @@
             Response.Write("<br /><li>Giro Maximo: "+c.GiroMaximo+"</li>");
             Response.Write("</ul>");
             %>
-            <br /><h3>Depositar</h3>
-    <form action="../controller/ActualizarSaldo.ashx" method="post">
-        <input type="number" name="nmbDeposito" required="required"/>
-        <%
-            Response.Write("<input type='hidden' name='idCuenta' value="+c.Id+"></input>");
-            Response.Write("<input type='hidden' name='idUsu' value="+u.Id+"></input>");
-            Response.Write("<input type='hidden' name='idTipoCuenta' value="+c.TipoCuenta+"></input>");
-
-        %>
-        &nbsp;<input type="submit" name="btnDepositar" value="Depositar" /><br /><h3>Girar</h3>
-    <form action="../controller/ActualizarSaldo.ashx" method="post">
-        <input type="number" name="nmbGiro" required="required"/>
-        <%
-            Response.Write("<input type='hidden' name='idCuenta2' value="+c.Id+"></input>");
-            Response.Write("<input type='hidden' name='idUsu2' value="+u.Id+"></input>");
-            Response.Write("<input type='hidden' name='idTipoCuenta2' value="+c.TipoCuenta+"></input>");
-
-        %>
-        <input type="submit" name="btnGirar" value="Girar" />
         <br />
         <br />
         <hr />
-    </form>
+    
 
         <%}
     %>

@@ -22,24 +22,24 @@ namespace sistema_banco.controller
                 int idUsu = int.Parse(context.Request.Params["idUsu2"]);
                 int idTipoCuenta = int.Parse(context.Request.Params["idTipoCuenta2"]);
 
-                List<Cuenta> cuentas = d.getCuenta(idUsu);
-                foreach (Cuenta c in cuentas)
+                
+                List<Cuenta> lc = d.getCuenta(idCuenta);
+                int resta = 0;
+                foreach (Cuenta c in lc)
                 {
                     if (c.TipoCuenta == idTipoCuenta)
                     {
-                        if (c.Saldo > monto)
-                        {
-                            d.ActualizarSaldo(monto,idUsu,idCuenta,idTipoCuenta);
-                        }
+                        resta = c.Saldo - monto;
                     }
                 }
+                d.ActualizarSaldo(resta, idUsu, idCuenta, idTipoCuenta);
 
 
             }
             catch (Exception)
             {
 
-                throw;
+                context.Response.Write("Debe ingresar valores numéricos.");
             }
         }
 

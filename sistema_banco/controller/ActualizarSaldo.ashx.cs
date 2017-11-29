@@ -17,12 +17,24 @@ namespace sistema_banco.controller
             
             try
             {
+
                 Data d = new Data();
+                
                 int saldo = int.Parse(context.Request.Params["nmbDeposito"]);
                 int idCuenta = int.Parse(context.Request.Params["idCuenta"]);
                 int idUsu = int.Parse(context.Request.Params["idUsu"]);
                 int idTipoCuenta = int.Parse(context.Request.Params["idTipoCuenta"]);
-                d.ActualizarSaldo(saldo, idUsu, idCuenta, idTipoCuenta);
+                List<Cuenta> lc = d.getCuenta(idCuenta);
+                int resta = 0;
+                foreach (Cuenta c in lc)
+                {
+                    if (c.TipoCuenta == idTipoCuenta)
+                    {
+                        resta = c.Saldo + saldo;
+                    }
+                }
+                d.ActualizarSaldo(resta, idUsu, idCuenta, idTipoCuenta);
+
             }
             catch (Exception)
             {
