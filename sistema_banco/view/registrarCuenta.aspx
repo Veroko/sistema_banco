@@ -40,9 +40,7 @@
               }%>
             
         </select>
-         <% Response.Write("<input type='hidden' name='id' value='"+u.Id+"' />");%>
-        <br />
-        <br />
+         <% Response.Write("<input type='hidden' name='id' value='"+u.Id+"' />");%><br /><br />
         <h4>Seleccione una de las opciones y podra agregar un tipo de cuenta para usted</h4>
         
         <input type="submit" value="Aceptar" />

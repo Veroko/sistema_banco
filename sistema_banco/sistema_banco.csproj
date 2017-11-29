@@ -85,6 +85,8 @@
     <Content Include="controller\crearUsuario.ashx" />
     <Content Include="controller\cambiarContraseña.ashx" />
     <Content Include="controller\cerrarSesion.ashx" />
+    <Content Include="controller\ActualizarSaldo.ashx" />
+    <Content Include="controller\GIrarCuenta.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -105,6 +107,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controller\ActualizarSaldo.ashx.cs">
+      <DependentUpon>ActualizarSaldo.ashx</DependentUpon>
+    </Compile>
     <Compile Include="controller\cambiarContraseña.ashx.cs">
       <DependentUpon>cambiarContraseña.ashx</DependentUpon>
     </Compile>
@@ -119,6 +124,9 @@
     </Compile>
     <Compile Include="controller\crearUsuario.ashx.cs">
       <DependentUpon>crearUsuario.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="controller\GIrarCuenta.ashx.cs">
+      <DependentUpon>GIrarCuenta.ashx</DependentUpon>
     </Compile>
     <Compile Include="controller\IniciarSesion.ashx.cs">
       <DependentUpon>IniciarSesion.ashx</DependentUpon>
