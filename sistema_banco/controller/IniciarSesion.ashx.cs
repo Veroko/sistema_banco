@@ -25,7 +25,7 @@ namespace sistema_banco.controller {
                 context.Response.Redirect("../view/banco.aspx");
             } else {
                 
-                context.Response.Redirect("../view/inicio.aspx");
+                context.Response.Redirect("../view/inicio.aspx?m=0");
             }
             
         }

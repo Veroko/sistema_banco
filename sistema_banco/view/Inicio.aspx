@@ -9,20 +9,32 @@
 </head>
 <body>
     <form method="post" action="../controller/iniciarSesion.ashx">
-        <input type="text" name="rut" required="required"/>
+        
+        <input type="text" name="rut" placeholder="Ej:17125207-5" required="required" />
 
         <br />
-
-        <input type="password" name="txtPass" required="required"/>
-
+        <input type="password" name="txtPass" placeholder="Contraseña..." required="required" />
 
         <input type="submit" value="Iniciar sesión"/>
-
 
     </form>
 
     <%--¿Cliente nuevo?, cambie su contraseña antes de iniciar sesión <a href="cambiarContraseña.aspx"><input type="button" value="Cambiar contraseña" /></a>--%>
 
-    ¿No eres cliente?. <a href="registrarUsuario.aspx"><input type="submit" value="Registrate!!" /></a>
+     <%
+        if (Request.Url.Equals(@"http://localhost:62667/view/inicio.aspx?m=0"))
+        {
+            Response.Write(
+                "<table>" +
+                "<tr>" +
+                "<td class='auto-style2'>¿No eres cliente?</td>" +
+                "<td class='auto-style2'>"+
+                "</tr>" +
+                "</table>"
+            );
+        }
+         Response.Write("<a href='registrarUsuario.aspx'><input type='submit' value='Registrate!!' /></a >");
+    %>
+        
 </body>
 </html>

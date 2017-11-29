@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.SessionState;
+
 namespace sistema_banco.controller {
     /// <summary>
     /// Descripción breve de crearCuenta
@@ -13,19 +14,21 @@ namespace sistema_banco.controller {
         public void ProcessRequest(HttpContext context) {
 
             Data d = new Data();
-
             Cuenta c = new Cuenta();
-            Usuario u = new Usuario();
-            int idUsuario = (int)context.Session[u.Id];
 
-            c.Saldo = 0;
-            c.GiroMaximo = null;
-            c.TipoCuenta = Int32.Parse(context.Request.Params.Get("valorCbox"));
+
+            int idUsuario = int.Parse(context.Request.Params.Get("id"));
+
             c.Usuario = idUsuario;
+            c.Saldo = 0;
+            c.GiroMaximo = "";
+            c.TipoCuenta = Int32.Parse(context.Request.Params.Get("cboxTipoCuenta"));
+           
+            
 
             d.crearCuenta(c);
 
-            context.Response.Redirect("../view/banco.apsx");
+            context.Response.Redirect("../view/banco.aspx");
 
         }
 

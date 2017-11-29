@@ -17,25 +17,31 @@
     </div>
     <%
         Data d = new Data();
-        
+        Usuario u = new Usuario();
+
+        if(Session["usuario"] != null) {
+            u = (Usuario) Session["usuario"];
+
+        } else {
+            Response.Redirect("registrarCuenta.aspx");
+        }
         List<TipoCuenta> lista = d.getTipoCuenta();
 
     %>
     <h2>Seleccione tipo de cuenta</h2>
     <br />
-    <form action="../controller/registrarCuenta.aspx" method="post">
-
+   
+    <form action="../controller/crearCuenta.ashx" method="post">
+        
         <select name="cboxTipoCuenta" style="width: 204px">
             <%foreach(TipoCuenta t in lista) {
                     Response.Write("<option name='valorCbox' value='" + t.Id + "'>" + t.Cuenta + "</option>");
               }%>
-            <option ></option>
+            
         </select>
-
+         <% Response.Write("<input type='hidden' name='id' value='"+u.Id+"' />");%>
         <h6>Seleccione una de las opciones y podra agregar un tipo de cuenta para usted</h6>
         <input type="submit" value="Aceptar" />
-
-
     </form>
     <a href="banco.aspx"><input type="submit" value="Ir a Home"/></a>
 </body>

@@ -102,18 +102,21 @@ namespace sistema_banco.model {
         public void crearCuenta(Cuenta cue) {
             switch(cue.TipoCuenta) {
                 case 1:
-                query = "INSERT INTO cuenta VALUES('" + cue.Usuario + "', '" + cue.TipoCuenta + "' , 0, 200000)";
+                    query = "INSERT INTO cuenta VALUES('" + cue.Usuario + "', '" + cue.TipoCuenta + "' , 0, 'Sin Limite')";//cuando sea 0, se hará un if, si es null sera ilimitado
+                    con.Ejecutar(query);
                 break;
                 case 2:
-                query = "INSERT INTO cuenta VALUES('" + cue.Usuario + "', '" + cue.TipoCuenta + "' , 0, null)";//cuando sea null, se hará un if, si es null sera ilimitado
+                query = "INSERT INTO cuenta VALUES('" + cue.Usuario + "', '" + cue.TipoCuenta + "' , 0, '200000')";
+                con.Ejecutar(query);
                 break;
                 case 3:
-                query = "INSERT INTO cuenta VALUES('" + cue.Usuario + "', '" + cue.TipoCuenta + "' , 0, 15000000)";
+                    query = "INSERT INTO cuenta VALUES('" + cue.Usuario + "', '" + cue.TipoCuenta + "' , 0, '15000000')";
+                    con.Ejecutar(query);
                 break;
             }
 
-            con.Ejecutar(query);
-            con.Cerrar();
+            
+            
             
         }
 

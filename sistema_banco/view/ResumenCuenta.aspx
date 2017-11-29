@@ -27,7 +27,11 @@
            TarjetaTransferencia t = d.getTarjeta(u.Id); /*<---- Arreglar ese detalle*/
            string[] codigo = t.Codigos.Split('|');
         %>
-
+    <div> 
+        <form action="../controller/cerrarSesion.ashx" method="post">
+            <input type="submit" value="Cerrar Sesión" />
+        </form>
+    </div>
     <h2>Datos</h2>
 
     <%
@@ -35,15 +39,22 @@
         int contCuentas = 0;
         foreach(Cuenta c in lista) {
             contCuentas++;
-            Response.Write("Cuenta N° "+contCuentas);
-            Response.Write("ID de la cuenta/Numero de Cuenta: "+c.Id);
-            Response.Write("Saldo: "+c.Saldo);
-            Response.Write("Giro Maximo: "+c.GiroMaximo);
+            Response.Write("<br />Cuenta N° "+contCuentas);
+            if(c.TipoCuenta == 1) {
+                Response.Write("<br />Tipo Cuenta: Cuenta Corriente");
+            }else if(c.TipoCuenta == 2){
+                Response.Write("<br />Tipo Cuenta: Cuenta Rut");
+            }else if(c.TipoCuenta == 3) {
+                Response.Write("<br />Tipo Cuenta: Cuenta de ahorro");
+            }
+            Response.Write("<br />ID de la cuenta/Numero de Cuenta: "+c.Id);
+            Response.Write("<br />Saldo: "+c.Saldo);
+            Response.Write("<br />Giro Maximo: "+c.GiroMaximo+"<br />");
         }
     %>
-
+    <br />
     <h4>Tarjeta de transferencia</h4>
-    <table >
+    <table border="1">
         <tr>
             <th ></th>
             <th >A</th>
@@ -89,5 +100,7 @@
             }
         %>
     </table>
+    </br>
+    <a href="banco.aspx"><input type="submit" value="Ir a Home"/></a>
 </body>
 </html>

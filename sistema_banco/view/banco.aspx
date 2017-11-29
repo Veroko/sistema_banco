@@ -7,10 +7,6 @@
      if(Session["usuario"] != null) {
          u = (Usuario) Session["usuario"];
 
-         
-
-    
-
      } else {
          Response.Redirect("registrarCuenta.aspx");
      }
@@ -31,19 +27,21 @@
         </form>
     </div>
         <% 
-            int contadorCuentas = 0;
-            Response.Write("<h5>ID: '"+u.Id+"'</h5>");
-            Response.Write("<h5>Usuario: '"+u.Nombre+"'</h5>");
-            foreach(Cuenta c in lista) {
-                contadorCuentas++;
+            int contadorCuentas = lista.Count;
+            Response.Write("<h5>ID: '"+u.Id+"'</h5></br>");
+            Response.Write("<h5>Usuario: '"+u.Nombre+"'</h5></br>");
+            
+            Response.Write("<h5>N° de cuentas asociadas: '"+contadorCuentas+"'</h5><br>");
+            if (contadorCuentas > 0){
+                Response.Write("</br></br><a href='ResumenCuenta.aspx'><input type='submit' value='Resumen cuenta'/></a>");
+                Response.Write("<a href='registrarCuenta.aspx'><input type='submit' value='Crear Cuenta'/></a>");
             }
-            Response.Write("<h5>N° de cuentas asociadas: '"+contadorCuentas+"'</h5>");
+            else{
+                Response.Write("</br /><br /><p>¿No tienes una cuenta?</p>");
+                Response.Write("<a href='registrarCuenta.aspx'>Crear Cuenta</a>");
+
+            }
         %>
-
-    
-  
-
-    <a href="ResumenCuenta.aspx"><input type="button" value="Resumen cuenta"/></a>
-    
+        
 </body>
 </html>
