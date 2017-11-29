@@ -32,10 +32,14 @@
             <input type="submit" value="Cerrar Sesión" />
         </form>
     </div>
+    <hr />
     <h2>Datos</h2>
-
+    
     <%
         Response.Write("Usuario:"+u.Nombre);
+        Response.Write("<br />");
+        Response.Write("<br />");
+        Response.Write("<hr />");
         int contCuentas = 0;
         foreach(Cuenta c in lista) {
             contCuentas++;
@@ -50,9 +54,12 @@
             Response.Write("<br />ID de la cuenta/Numero de Cuenta: "+c.Id);
             Response.Write("<br />Saldo: "+c.Saldo);
             Response.Write("<br />Giro Maximo: "+c.GiroMaximo+"<br />");
+            Response.Write("<br />");
+            Response.Write("<hr />");
+
         }
     %>
-    <br />
+    
     <h4>Tarjeta de transferencia</h4>
     <table border="1">
         <tr>
@@ -100,7 +107,7 @@
             }
         %>
     </table>
-    </br>
+    <br />
     <a href="banco.aspx"><input type="submit" value="Ir a Home"/></a>
 </body>
 </html>

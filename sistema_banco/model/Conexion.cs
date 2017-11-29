@@ -19,7 +19,7 @@ namespace sistema_banco.model {
                     //"Initial Catalog=" + bd + "; " +
                     //"User id=sa; " +
                     //"Password=123456;"
-                    "Data Source=MATII;" +
+                    "Data Source=LAPTOP-FM54OJ8S;" +
                     "Initial Catalog=" + bd + "; " +
                     "User id=sa; " +
                     "Password=123456;"

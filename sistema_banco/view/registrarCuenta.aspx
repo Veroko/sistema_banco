@@ -15,6 +15,7 @@
             <input type="submit" value="Cerrar Sesión" />
         </form>
     </div>
+    <hr />
     <%
         Data d = new Data();
         Usuario u = new Usuario();
@@ -40,9 +41,15 @@
             
         </select>
          <% Response.Write("<input type='hidden' name='id' value='"+u.Id+"' />");%>
-        <h6>Seleccione una de las opciones y podra agregar un tipo de cuenta para usted</h6>
+        <br />
+        <br />
+        <h4>Seleccione una de las opciones y podra agregar un tipo de cuenta para usted</h4>
+        
         <input type="submit" value="Aceptar" />
     </form>
+    <br />
+    <hr />
+    <br />
     <a href="banco.aspx"><input type="submit" value="Ir a Home"/></a>
 </body>
 </html>
