@@ -1,56 +1,58 @@
-CREATE DATABASE banco
+CREATE DATABASE banco;
 GO
-USE banco
+USE banco;
+--DROP DATABASE banco;
 GO
 
-CREATE TABLE usuario(
-	id INT IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE usuario
+(
+	id INT PRIMARY KEY IDENTITY(1,1) ,
 	rut VARCHAR(12),
 	nombre VARCHAR(150),
 	correo VARCHAR(50),
 	direccion VARCHAR(150),
 	fono VARCHAR(15),
 	clave VARCHAR(10)
-);
+);--SELECT * FROM usuario
 
---insert into usuario values('19083318-6','mati','asd','asd','+6985')
+INSERT INTO usuario VALUES('19083318-6','mati','asd','asd','+6985','12345');
 
-CREATE TABLE tarjetaTransferencia(
+CREATE TABLE tarjetaTransferencia
+(
 	id INT IDENTITY(1,1) PRIMARY KEY,
 	codigo VARCHAR(250),
-	user_fk INT,
-	FOREIGN KEY(user_fk) REFERENCES usuario(id)
-);
+	user_fk INT FOREIGN KEY REFERENCES usuario(id)
+);--SELECT * FROM tarjetaTransferencia
 
-
-CREATE TABLE tipoCuenta(
-	id INT IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE tipoCuenta
+(
+	id INT PRIMARY KEY IDENTITY(1,1),
 	tipoCuenta VARCHAR(20)
 );
 
-INSERT INTO tipoCuenta VALUES('Cuenta Corriente')
-INSERT INTO tipoCuenta VALUES('Cuenta Rut')
-INSERT INTO tipoCuenta VALUES('Cuenta de Ahorro')
+INSERT INTO tipoCuenta VALUES('Cuenta Corriente'),
+('Cuenta Rut'),
+('Cuenta de Ahorro');
 
-CREATE TABLE cuenta(
-	id INT IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE cuenta
+(
+	id INT PRIMARY KEY IDENTITY(1,1),
 	usuario INT REFERENCES usuario(id),
 	tipoCuenta INT REFERENCES tipoCuenta(id),
 	saldo INT,
-	montoMaxGiro INT
-);
+	montoMaxGiro VARCHAR(500)
+);--select * from cuenta
 
---insert into usuario values();
---insert into cuenta values();
+--INSERT INTO usuario VALUES();
+--INSERT INTO cuenta VALUES();
 
-CREATE TABLE solicitarCredito(
-	id INT IDENTITY,
+CREATE TABLE solicitarCredito
+(
+	id INT PRIMARY KEY IDENTITY(1,1),
 	fecha DATE,
-	numCuenta INT,
-	monto INT,
-	PRIMARY KEY(id),
-	FOREIGN KEY(numCuenta) REFERENCES usuario(id)
+	numCuenta INT FOREIGN KEY REFERENCES usuario(id),
+	monto INT
 );
 
 
---drop database banco
+--SELECT COUNT(*) FROM usuario  WHERE rut = '19083318-6' AND clave = '12345'
